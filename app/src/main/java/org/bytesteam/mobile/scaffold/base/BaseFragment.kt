@@ -21,7 +21,7 @@ abstract class BaseFragment : Fragment(), MVPContract.View {
     override fun showLogon() {
     }
 
-    override fun showError(errorCode: String) {
+    override fun showError(message: String) {
     }
 
     override fun hideError() {

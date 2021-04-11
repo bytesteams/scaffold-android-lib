@@ -4,11 +4,11 @@ interface MVPContract {
 
     interface View {
         fun showLogon()
-        fun showError(errorCode: String)
+        fun showError(message: String)
         fun hideError()
     }
 
     interface Presenter<T : View> {
-        fun onError()
+        fun onError(localErrorHandler: ((Throwable) -> Boolean)? = null): ((Throwable) -> Unit)
     }
 }
