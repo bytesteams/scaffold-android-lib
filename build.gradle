@@ -21,7 +21,7 @@ buildscript {
         junitVersion = "4.+"
         espressoVersion = "3.3.0"
 
-        daggerVersion = "2.34"
+        daggerVersion = "2.34.1"
         mockkVersion = "1.11.0"
         coroutineVersion = "1.4.3"
         retrofitVersion = "2.9.0"
