@@ -12,19 +12,19 @@ private const val DEFAULT_RESPONSE_CODE = 200
 private val DEFAULT_MEDIA_TYPE: MediaType = "application/json".toMediaType()
 private val DEFAULT_PROTOCOL = Protocol.HTTP_2
 
-internal fun MockResponse(
+internal fun mockResponse(
     request: Request,
     responseBody: ResourceFile,
     mediaType: MediaType = DEFAULT_MEDIA_TYPE,
     responseCode: Int = DEFAULT_RESPONSE_CODE,
     protocol: Protocol = DEFAULT_PROTOCOL
 ): Response {
-    return MockResponse(
+    return mockResponse(
         request, responseBody.readText(), mediaType, responseCode, protocol
     )
 }
 
-internal fun MockResponse(
+internal fun mockResponse(
     request: Request,
     responseBody: String = "",
     mediaType: MediaType = DEFAULT_MEDIA_TYPE,

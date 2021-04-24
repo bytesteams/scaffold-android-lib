@@ -4,7 +4,7 @@ import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 import org.bytesteam.mobile.core.ResourceFile
-import org.bytesteam.mobile.scaffold.networking.MockResponse
+import org.bytesteam.mobile.scaffold.networking.mockResponse
 
 class MockResponseInterceptor : Interceptor {
 
@@ -27,10 +27,10 @@ class MockResponseInterceptor : Interceptor {
     private fun fullPathSegmentProcessors(): Map<String, (Request) -> Response> {
         return mapOf(
             "http://www.sample.com/sample-path" to { request ->
-                MockResponse(request, ResourceFile("mockdata/sample.json"))
+                mockResponse(request, ResourceFile("mockdata/sample.json"))
             },
             "http://www.sample.com/sample-path2" to { request ->
-                MockResponse(request, "sample body")
+                mockResponse(request, "sample body")
             }
         )
     }
@@ -38,10 +38,10 @@ class MockResponseInterceptor : Interceptor {
     private fun singlePathSegmentProcessors(): Map<String, (Request) -> Response> {
         return mapOf(
             "sample-path" to { request ->
-                MockResponse(request, ResourceFile("mockdata/sample.json"))
+                mockResponse(request, ResourceFile("mockdata/sample.json"))
             },
             "sample-path2" to { request ->
-                MockResponse(request, "sample body")
+                mockResponse(request, "sample body")
             }
         )
     }
