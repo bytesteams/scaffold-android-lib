@@ -9,6 +9,6 @@ interface MVPContract {
     }
 
     interface Presenter<T : View> {
-        fun onError(localErrorHandler: ((Throwable) -> Boolean)? = null): ((Throwable) -> Unit)
+        fun onError(error: Throwable, localErrorHandler: ((Throwable) -> Boolean)? = null)
     }
 }

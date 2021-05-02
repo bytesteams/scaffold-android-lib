@@ -18,13 +18,11 @@ class BasePresenter<T : MVPContract.View> : MVPContract.Presenter<T> {
         this.view = null
     }
 
-    override fun onError(localErrorHandler: ((Throwable) -> Boolean)?): (Throwable) -> Unit {
-        return { exception ->
-            when (exception) {
-                is AuthTokenExpiredException -> view?.showLogon()
-                is GenericException -> view?.showError(exception.code)
-                else -> view?.showError("Generic error")
-            }
+    override fun onError(error: Throwable, localErrorHandler: ((Throwable) -> Boolean)?) {
+        when (error) {
+            is AuthTokenExpiredException -> view?.showLogon()
+            is GenericException -> view?.showError(error.code)
+            else -> view?.showError("Generic error")
         }
     }
 }
