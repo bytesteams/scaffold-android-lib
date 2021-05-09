@@ -9,6 +9,8 @@ interface MVPContract {
     }
 
     interface Presenter<T : View> {
+        fun attachView(view: T)
+        fun detachView()
         fun onError(error: Throwable, localErrorHandler: ((Throwable) -> Boolean)? = null)
     }
 }

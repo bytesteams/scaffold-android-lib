@@ -1,20 +1,24 @@
 package org.bytesteam.mobile.scaffold.base
 
 import androidx.annotation.CallSuper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
 import org.bytesteam.mobile.scaffold.networking.AuthTokenExpiredException
 import org.bytesteam.mobile.scaffold.networking.GenericException
 
-class BasePresenter<T : MVPContract.View> : MVPContract.Presenter<T> {
+open class BasePresenter<T : MVPContract.View> : MVPContract.Presenter<T> {
 
     var view: T? = null
 
+    protected val mainScope: CoroutineScope by lazy { MainScope() }
+
     @CallSuper
-    fun attachView(view: T) {
+    override fun attachView(view: T) {
         this.view = view
     }
 
     @CallSuper
-    fun detachView() {
+    override fun detachView() {
         this.view = null
     }
 
